@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <table>
+        <tbody>
+        <tr>
+            <td><b>Profile Info</b></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Imię:</td>
+            <td style="padding-left: 20px">{{ user_temp.first_name }}</td>
+        </tr>
+        <tr>
+            <td>Nazwisko:</td>
+            <td style="padding-left: 20px">{{ user_temp.last_name }}</td>
+        </tr>
+        <tr>
+            <td>Data urodzenia:</td>
+            <td style="padding-left: 20px">{{ user_temp.profile.birth_date|date:"d M Y" }}</td>
+        </tr>
+        <tr>
+            <td>PESEL:</td>
+            <td style="padding-left: 20px">{{ user_temp.profile.pesel }}</td>
+        </tr>
+        <tr>
+            <td>Grupa krwi:</td>
+            <td style="padding-left: 20px">{{ user_temp.profile.get_blood_display }}</td>
+        </tr>
+        </tbody>
+    </table>
+    {% if user.profile == user_temp.profile %}
+        <p style="padding-top: 10px"><a href="/editprofile/{{ user.profile.pk }}">Edytuj Profil</a></p>
+    {% endif %}
+
+    <p style="padding-top: 50px"><a href="/"><input class="btn btn-primary" type="button" value="Cofnij"></a></p>
+
+
+{% endblock %}
+</html>
+

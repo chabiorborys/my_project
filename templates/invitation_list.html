@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Zostałeś zaproszony do grona rodziny przez:</h2>
+
+    {% for invitation in invitations %}
+        <p>{{ invitation.from_user.first_name }} {{ invitation.from_user.last_name }} <a
+                href="/accept/{{ invitation.id }}">
+            <button type="button" class="btn btn-success">Akceptuj</button>
+        </a><a href="/delete_invitation/{{ invitation.id }}">
+            <button type="button" class="btn btn-danger">Usuń</button>
+        </a></p>
+    {% endfor %}
+    <p style="padding-top: 50px"><a href="/"><input class="btn btn-primary" type="button" value="Cofnij"></a></p>
+{% endblock %}

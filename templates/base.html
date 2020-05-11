@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <meta charset="utf-8">
+    <title>{% block title %}Rodzinka.pl{% endblock %}</title>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Rodzinka.pl</a>
+    </div>
+
+    {% if user.is_authenticated %}
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/profile">Twój Profil</a></li>
+                <li><a href="/myfamily">Rodzinka</a></li>
+                <li><a href="/family/">Zaproszenia</a></li>
+                <li><a href="/users">Użytkownicy</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                <li><a href="{% url 'password_reset' %}">Reset Password</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    {% else %}
+        <a class="navbar-brand">Nie jesteś zalogowany</a>
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'login' %}">login</a></li>
+            <li><a href="{% url 'signup' %}">Zarejestruj się</a></li>
+        </ul>
+    {% endif %}
+</nav>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+</body>
+</html>

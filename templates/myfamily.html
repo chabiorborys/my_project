@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>Rodzinka</h2>
+    <table>
+        {% for friend in user.profile.friends.all %}
+            <tr>
+                <td style="padding-right: 10px"><a
+                        href="{% url 'view_profile_with_pk' friend.user.pk %}"> {{ friend.user.username }}</a></td>
+
+                <td>
+                    <a href="/delete_from_family/{{ friend.pk }}">
+                        <button style="text-align: center" type="button" class="btn btn-danger">Usuń z rodziny</button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p style="padding-top: 50px"><a href="/"><input class="btn btn-primary" type="button" value="Cofnij"></a></p>
+{% endblock %}

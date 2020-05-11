@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{##}
+{#{% block title %}Home{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#{% if user.is_authenticated %}#}
+{#  Witamy na stronie Rodzinka.pl, {{ user.username }}!#}
+{#    <p><a href="/profile">Twój Profil</a></p>#}
+{#    <p><a href="/users">Użytkownicy</a></p>#}
+{#    <p><a href="family/">Zaproszenia</a> </p>#}
+{#    <p><a href="/myfamily">Rodzina</a></p>#}
+{#    <p><a href="{% url 'logout' %}">logout</a> </p>#}
+{#    <p><a href="{% url 'password_reset' %}">reset password</a></p>#}
+{#{% else %}#}
+{#  <p>Nie jesteś zalogowany</p>#}
+{#  <ul>#}
+{#  <li><a href="{% url 'login' %}">login</a></li>#}
+{#  <li><a href="{% url 'signup' %}">Zarejestruj się</a></li>#}
+{#  </ul>#}
+{#{% endif %}#}
+{#{% endblock %}#}
